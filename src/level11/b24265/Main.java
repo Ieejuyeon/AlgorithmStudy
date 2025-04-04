@@ -1,4 +1,4 @@
-package level11.b24264;
+package level11.b24265;
 
 import java.util.Scanner;
 
@@ -6,8 +6,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         long n = sc.nextLong();
-
-        System.out.print(n*n + "\n2");
+        System.out.println(n*n*n + "\n3");
     }
 }
-
