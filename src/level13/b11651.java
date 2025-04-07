@@ -1,9 +1,9 @@
-package level13.b11650;
+package level13;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Main {
+public class b11651 {
     public static class Tuple implements Comparable<Tuple>{
         int x;
         int y;
@@ -14,7 +14,7 @@ public class Main {
 
         @Override
         public int compareTo(Tuple o) {
-            if(this.x > o.x || (this.x==o.x &&this.y > o.y)) return 1;
+            if(this.y > o.y || (this.y==o.y &&this.x > o.x)) return 1;
             else return -1;
         }
     }

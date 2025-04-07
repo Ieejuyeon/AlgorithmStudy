@@ -1,39 +1,40 @@
-package level13.b11650;
+package level13;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Main {
-    public static class Tuple implements Comparable<Tuple>{
-        int x;
-        int y;
-        public Tuple(int x, int y){
-            this.x = x;
-            this.y = y;
+public class b10814 {
+    static class Tuple implements Comparable<Tuple> {
+        int age;
+        String name;
+        Tuple(int age, String name){
+            this.age = age;
+            this.name = name;
         }
 
         @Override
         public int compareTo(Tuple o) {
-            if(this.x > o.x || (this.x==o.x &&this.y > o.y)) return 1;
-            else return -1;
+            return Integer.compare(this.age, o.age);
         }
     }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int n = Integer.parseInt(br.readLine());
         String[] s;
-
         ArrayList<Tuple> tuples = new ArrayList<>();
+
         for(int i = 0; i < n; i++){
             s = br.readLine().split(" ");
-            tuples.add( new Tuple(Integer.parseInt(s[0]), Integer.parseInt(s[1])));
+            tuples.add(new Tuple(Integer.parseInt(s[0]),s[1]));
         }
 
         Collections.sort(tuples);
 
-        for(int i = 0; i < n; i++){
-            bw.write(tuples.get(i).x + " " + tuples.get(i).y + "\n");
+        for(int i =0; i < n; i++){
+            bw.write(tuples.get(i).age + " " + tuples.get(i).name + "\n");
         }
 
         bw.flush();
