@@ -17,10 +17,13 @@ public class Main {
             }
             else System.out.print(0);
         }
-        else if(n0<-1*a0/(a1-c))
+        else if(a1>c){
             System.out.print(0);
-        else
+        }
+        else if(n0>=-1*a0/(a1-c))
             System.out.print(1);
+        else
+            System.out.print(0);
 
     }
 }
