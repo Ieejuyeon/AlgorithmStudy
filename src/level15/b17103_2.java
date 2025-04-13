@@ -1,34 +1,38 @@
 package level15;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.*;
 
 public class b17103_2 {
-    public static void main(String[] args) {
-        int listSize = 500000;
+    public static void main(String[] args) throws IOException {
+        int listSize = 1000001;
         boolean[] list = new boolean[listSize];
-        Set<Integer> primes = new HashSet<>();
         for (int i = 2; i < listSize; i++) {
             list[i] = true;
         }
-        int temp;
-        for (int i = 2; i < listSize; i++) {
-            temp = 2;
-            if (list[i]) {
-                while (temp * i < listSize) {
-                    list[temp*i] = false;
-                    temp++;
+        for (int i = 2; i*i < listSize; i++) {
+            if(list[i]){
+                for(int j = i*i; j < listSize; j += i){
+                    list[j] = false;
                 }
             }
         }
 
-        for(int i = 2; i < listSize; i++){
-            if(list[i])
-                primes.add(i);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t, n, count;
+        t = Integer.parseInt(br.readLine());
+        for(int i = 0; i < t; i++){
+            count = 0;
+            n = Integer.parseInt(br.readLine());
+            for(int j =2; j < n/2+1; j++){
+                if(list[j]&&list[n-j]){
+                    count++;
+                }
+            }
+            bw.write(count+"\n");
         }
-
-
+        bw.flush();
+        bw.close();
+        br.close();
     }
 }
