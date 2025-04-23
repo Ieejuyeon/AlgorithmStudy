@@ -1,27 +1,59 @@
 package test;
+class Parent{
+static int total = 0;
 
-class Animal {
-    public Animal(String s) {
-        System.out.println("동물 : " + s);
-    }
+int v = 1;
+
+public Parent() {
+
+    total += (++v);
+
+    show();
+
 }
 
-class Mammal extends Animal {
-    public Mammal() {
-        // super();
-        super("원숭이");
-        System.out.println("포유류 : 원숭이");
+public void show() {
+
+    total += total;
+
+}
+
+}
+
+class Child extends Parent{
+
+    int v = 10;
+
+    public Child() {
+
+        v += 2;
+
+        total += v++;
+
+        show();
+
     }
 
-    public Mammal(String s) {
-        super(s);
-        System.out.println("포유류 : " + s);
+    @Override
+
+    public void show() {
+
+        total += total * 2;
+
     }
+
 }
 
 public class Main {
+
     public static void main(String[] args) {
-        Mammal ape = new Mammal();
-        Mammal lion = new Mammal("사자");
+
+        new Child();
+
+        System.out.println(Parent.total);
+
     }
+
+
+
 }
