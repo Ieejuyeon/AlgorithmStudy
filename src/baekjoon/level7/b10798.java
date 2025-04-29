@@ -1,4 +1,4 @@
-package baekjoon.leve7;
+package baekjoon.level7;
 
 import java.io.IOException;
 
